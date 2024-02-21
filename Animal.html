@@ -14,16 +14,8 @@
     <label for="guessAnimal">Guess the animal:</label><br>
         <input type="text" id="guessAnimal"><br><br>
         <button type="button" onclick="checkAnimal()">Check the guess</button>
-
-    
+        <p id="result">This text will be replaced </p>
 </form>
-
-
-<div id="result" style="font-size:100%;>
-
-<script> 
-
-    <div id="result"> CORRECT/WRONG ??</div>
     <script>
         let correct = 0;
         let wrong = 0;
@@ -42,6 +34,7 @@
             document.getElementById('result').innerHTML = `Correct Guess!!: ${correct}, Wrong Guess!!: ${wrong}`;
         }
     </script>
+
     <div class="image-container">
         <img id="drinkImage" src="red_wine.jpg" alt="red wine" width="150" height="150" onclick="selectImage()">
     </div>
