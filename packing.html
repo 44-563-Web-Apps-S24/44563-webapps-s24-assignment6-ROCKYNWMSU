@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Packing</title>
+</head>
+<body>
+    <h1>Karadi Rakesh Gopal packs for a trip</h1>
+    <form>
+        <input type="checkbox" id="Pack_light" value="True">
+        <label for="Pack_light"> Pack light</label>
+        <br>
+        <input type="checkbox" id="Carry_on" value="True">
+        <label for="Carry_on">Carry on</label>
+        <br>
+        <input type="checkbox" id="Tablet" value="False">
+        <label for="Tablet">Tablet</label>
+        <br>
+        <button type="button" onclick="selectPack()">Select for packing</button>
+    </form>    
+    <p id="result">This text will be replaced </p>    
+    <form>
+        <label for="Month">Enter travel month</label>
+        <input type="text" id="Month" value="May"> 
+        <br>
+        <br>
+        <label for="Price">Enter price</label>
+        <input type="text" id="Price"> 
+        <br>
+        <br>
+        <button type="button" onclick="updatePack()">Update the pack</button>
+    </form>    
+    <p id="priceresult">This text will be replaced </p>
+<h2>Getting input</h2>
+<form>
+    <label for="form1_age">What is your age </label>
+    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+    <label for="form1_nick">What is your nickname </label>
+    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+    <input type="button" onclick="resolveForm()" value="Get values from form">
+</form>
+<p id="result">This text will be replaced </p>
+<script>
+     var my_pack ={};
+    function selectPack() 
+    {
+        my_pack = {};
+        var firstLight = document.getElementById("Pack_light").checked;
+        var secondLight = document.getElementById("Carry_on").checked;
+        var thirdLight = document.getElementById("Tablet").checked;
+        my_pack.light = firstLight;
+        my_pack.carry = secondLight;
+        my_pack.tablet = thirdLight;
+        document.getElementById('result').innerHTML = "Result: " + JSON.stringify(my_pack);
+    }
+    function updatePack()
+    {
+        var monthInput = document.getElementById("Month").value;
+        var PriceInput = document.getElementById("Price").value;
+        my_pack[monthInput] = PriceInput;
+        document.getElementById('priceresult').innerHTML = "Result: " + JSON.stringify(my_pack);
+    }
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+</body>
+</html> 
